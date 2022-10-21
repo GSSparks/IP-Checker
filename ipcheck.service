@@ -1,0 +1,6 @@
+[Unit]
+Description=Check dynamic public IP and alert if change is detected.
+
+[Service]
+ExecStart=/usr/bin/ipcheck
+Type=oneshot
