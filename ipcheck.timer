@@ -1,0 +1,10 @@
+[Unit]
+Description=Check dynamic public IP change and alert if detected
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target
