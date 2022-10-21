@@ -2,7 +2,7 @@
 
 ip_add=$(cat .public-ip)
 
-ip_add_challenge=$(curl http://icanhazip.com)
+ip_add_challenge=$(curl -s http://icanhazip.com)
 
 if [ "${ip_add}" == "${ip_add_challenge}" ]; then
     echo 'IP has not changed'
