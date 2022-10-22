@@ -1,10 +1,14 @@
 #!/bin/bash
 
-ip_add=$(cat .public-ip)
+if [[ -e ".public-ip" ]]; then #Test if .public-ip file exists
+    ip_add=`cat .public-ip`
+else
+    touch ".public-ip"
+fi
 
-ip_add_challenge=$(curl -s http://icanhazip.com)
+ip_add_challenge=`curl -s http://icanhazip.com`
 
-if [ "${ip_add}" == "${ip_add_challenge}" ]; then
+if [ "$ip_add" == "$ip_add_challenge" ]; then
     echo 'IP has not changed'
     exit
 else
